@@ -1,0 +1,226 @@
+
+<link rel="icon" type="image/png" href="https://64.media.tumblr.com/8fde895ba7c7203d0638d3f842c60600/tumblr_inline_t63czilaK91yrz37b_500.png">
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Wrapper de référence */
+#intro-wrapper {
+  position: relative;
+  width: 1920px;   /* largeur de référence */
+  height: 1080px;  /* hauteur de référence */
+  transform-origin: top left;
+}
+
+/* Scale automatique pour tous les écrans */
+#intro-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#intro-wrapper {
+  transform: scale(calc(min(100vw / 1920, 100vh / 1080)));
+}
+
+.intro-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.intro-text {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 700px;
+  z-index: 2;
+}
+
+.intro-notes {
+  position: absolute;
+  bottom: -5%; /* Ajuste selon l'emplacement souhaité */
+  right: 0%;  /* Ajuste selon l'emplacement souhaité */
+  width: 650px; /* ou une taille adaptée pour ton rendu */
+  z-index: 3;  /* au-dessus du BG mais sous le bouton ou le téléphone */
+}
+
+
+#enter-btn {
+  position: absolute;
+  top: 35%;
+  left: 65%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-block;
+  width: 30%;
+}
+
+#enter-btn img {
+  width: 350px;
+  transition: transform 0.15s ease;
+  border-radius: 15px;
+  filter: drop-shadow(4px 11px 1px #cb61a3);
+}
+
+#enter-btn:active img {
+  transform: translateY(4px);
+}
+
+/* Téléphone animé */
+#phone-container {
+  position: absolute;
+  left: -120px;
+  top: 320px;
+  width: 560px;
+  height: 1280px;
+  z-index: 4;
+}
+
+.phone-notif {
+  width: 122%;
+  height: 122%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: notifAnim 19s steps(19) infinite;
+  animation-timing-function: steps(1,end);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Frames CSS */
+.phone-notif {
+  --f1: url("https://64.media.tumblr.com/6625cae78fc2e91e60e36b40b5c3288e/tumblr_inline_t677poWoL41yrz37b_1280.png");
+  --f2: url("https://64.media.tumblr.com/08df5a81679cf5a1376bf21b81cc5741/tumblr_inline_t677r53zXO1yrz37b_1280.png");
+  --f3: url("https://64.media.tumblr.com/e93265eaead7a0b625966a96e1696713/tumblr_inline_t677v8rP3T1yrz37b_1280.png");
+  --f4: url("https://64.media.tumblr.com/bac2052b83817069b33eea98461e0988/tumblr_inline_t677vyihfW1yrz37b_1280.png");
+  --f5: url("https://64.media.tumblr.com/f70f57fb1234d7a2f97da96efd7e13fd/tumblr_inline_t677wpO6K11yrz37b_1280.png");
+  --f6: url("https://64.media.tumblr.com/77ac5203d6bd376004ef5b8de9a57eb4/tumblr_inline_t677xel0pf1yrz37b_1280.png");
+  --f7: url("https://64.media.tumblr.com/02ec3a16ded5f5269c59b9e8c00ad499/tumblr_inline_t677y4jsni1yrz37b_1280.png");
+  --f8: url("https://64.media.tumblr.com/753d540cf1f86c5e706dfe03b03b5677/tumblr_inline_t677ydpDUF1yrz37b_1280.png");
+  --f9: url("https://64.media.tumblr.com/5cc591580b493d8bc9f192e2000d2861/tumblr_inline_t677z1Fizg1yrz37b_1280.png");
+  --f10: url("https://64.media.tumblr.com/75cb7b2953a40c46e562405b54b1aa44/tumblr_inline_t67812UMoD1yrz37b_1280.png");
+  --f11: url("https://64.media.tumblr.com/3cc61ff6439c958d500225e0bc51117c/tumblr_inline_t67819yKC71yrz37b_1280.png");
+  --f12: url("https://64.media.tumblr.com/3898b5ec8d7aae7db48f59f6851b611d/tumblr_inline_t6781havvn1yrz37b_1280.png");
+  --f13: url("https://64.media.tumblr.com/e08cc7543b978120d6636eff9809c622/tumblr_inline_t6781rHgrX1yrz37b_1280.png");
+  --f14: url("https://64.media.tumblr.com/77ae042f0f5ca6465ca609b23423e90b/tumblr_inline_t678209rOG1yrz37b_1280.png");
+  --f15: url("https://64.media.tumblr.com/32e1dbafcd54b902a4769322937dae6e/tumblr_inline_t6782bCyAl1yrz37b_1280.png");
+  --f16: url("https://64.media.tumblr.com/e9cdec04597949f8fcf26c53561d3b58/tumblr_inline_t6782lxk2e1yrz37b_1280.png");
+  --f17: url("https://64.media.tumblr.com/b549cbaeaddf8d0f0cf519d33a0ed813/tumblr_inline_t6782v6G3O1yrz37b_1280.png");
+  --f18: url("https://64.media.tumblr.com/e326dded6c03c9e74f569a3dd9292530/tumblr_inline_t67834uDu91yrz37b_1280.png");
+  --f19: url("https://64.media.tumblr.com/b8f0a691cc820574b8d44f62fa2c648f/tumblr_inline_t6783lVKae1yrz37b_1280.png");
+  --f20: url("https://64.media.tumblr.com/6712be202a4e20952fab92e433b99419/tumblr_inline_t6783wvyEU1yrz37b_1280.png");
+  --f21: url("https://64.media.tumblr.com/6625cae78fc2e91e60e36b40b5c3288e/tumblr_inline_t677poWoL41yrz37b_1280.png");
+}
+
+@keyframes notifAnim {
+    0%   { background-image: var(--f1); }
+    5%   { background-image: var(--f2); }
+    10%  { background-image: var(--f3); }
+    15%  { background-image: var(--f4); }
+    20%  { background-image: var(--f5); }
+    25%  { background-image: var(--f6); }
+    30%  { background-image: var(--f7); }
+    35%  { background-image: var(--f8); }
+    40%  { background-image: var(--f9); }
+    45%  { background-image: var(--f10); }
+    50%  { background-image: var(--f11); }
+    55%  { background-image: var(--f12); }
+    60%  { background-image: var(--f13); }
+    65%  { background-image: var(--f14); }
+    70%  { background-image: var(--f15); }
+    75%  { background-image: var(--f16); }
+    80%  { background-image: var(--f17); }
+    85%  { background-image: var(--f18); }
+    90%  { background-image: var(--f19); }
+    95%  { background-image: var(--f20); }
+    100% { background-image: var(--f21); }
+}
+
+/* Préchargement */
+.preload { display: none; }
+
+/* Supprime transitions héritées du thème Tumblr */
+#phone-container, #phone-container * {
+  transition: none !important;
+  opacity: 1 !important;
+}
+.phone-notif {
+  animation-timing-function: steps(1, end) !important;
+  will-change: background-image;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Overlay image par-dessus le BG */
+.intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5; /* supérieur au BG, inférieur au texte et au téléphone si tu veux */
+  pointer-events: none; /* l’utilisateur peut cliquer à travers */
+}
+
+.intro-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* se comporte comme un background */
+}
+
+
+
+</style>
+
+<div id="intro-page">
+  <div id="intro-wrapper">
+    <img class="intro-bg" src="https://64.media.tumblr.com/0e3b621230d17c01145f564b14354560/tumblr_inline_t66qhkFn0S1yrz37b_1280.png" alt="">
+    <img class="intro-text" src="https://64.media.tumblr.com/d6832f1a4789ddb868f476737cbca048/tumblr_inline_t5tkgsIyJj1yrz37b_1280.png" alt="">
+    
+     <!-- Nouveau carnet en image séparée -->
+  <img class="intro-notes" src="https://64.media.tumblr.com/60d3bdc44a48ee46edb9206d50bc4168/tumblr_inline_t679l7U0aq1yrz37b_1280.png" alt="Carnet">
+
+    <a id="enter-btn" href="/"><img src="https://64.media.tumblr.com/64e40b9587955da89248f8d487b6e359/tumblr_inline_t5qb54lGKK1yrz37b_1280.png" alt=""></a>
+
+    <div id="phone-container">
+      <div class="phone-notif"></div>
+    </div>
+
+    <div class="preload">
+    <img src="https://64.media.tumblr.com/6625cae78fc2e91e60e36b40b5c3288e/tumblr_inline_t677poWoL41yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/08df5a81679cf5a1376bf21b81cc5741/tumblr_inline_t677r53zXO1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/e93265eaead7a0b625966a96e1696713/tumblr_inline_t677v8rP3T1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/bac2052b83817069b33eea98461e0988/tumblr_inline_t677vyihfW1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/f70f57fb1234d7a2f97da96efd7e13fd/tumblr_inline_t677wpO6K11yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/77ac5203d6bd376004ef5b8de9a57eb4/tumblr_inline_t677xel0pf1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/02ec3a16ded5f5269c59b9e8c00ad499/tumblr_inline_t677y4jsni1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/753d540cf1f86c5e706dfe03b03b5677/tumblr_inline_t677ydpDUF1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/5cc591580b493d8bc9f192e2000d2861/tumblr_inline_t677z1Fizg1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/75cb7b2953a40c46e562405b54b1aa44/tumblr_inline_t67812UMoD1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/3cc61ff6439c958d500225e0bc51117c/tumblr_inline_t67819yKC71yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/3898b5ec8d7aae7db48f59f6851b611d/tumblr_inline_t6781havvn1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/e08cc7543b978120d6636eff9809c622/tumblr_inline_t6781rHgrX1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/77ae042f0f5ca6465ca609b23423e90b/tumblr_inline_t678209rOG1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/32e1dbafcd54b902a4769322937dae6e/tumblr_inline_t6782bCyAl1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/e9cdec04597949f8fcf26c53561d3b58/tumblr_inline_t6782lxk2e1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/b549cbaeaddf8d0f0cf519d33a0ed813/tumblr_inline_t6782v6G3O1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/e326dded6c03c9e74f569a3dd9292530/tumblr_inline_t67834uDu91yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/b8f0a691cc820574b8d44f62fa2c648f/tumblr_inline_t6783lVKae1yrz37b_1280.png">
+    <img src="https://64.media.tumblr.com/6712be202a4e20952fab92e433b99419/tumblr_inline_t6783wvyEU1yrz37b_1280.png">
+
+    </div>
+  </div>
+</div>
